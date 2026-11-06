@@ -10,3 +10,4 @@ playwright-report/
 .eve/
 .vercel/
 *.log
+site-dist/
