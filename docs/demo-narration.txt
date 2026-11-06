@@ -1,0 +1,11 @@
+GridAgent helps factories move flexible electricity demand into better operating hours. This walkthrough shows our working public browser demonstration. All inputs are synthetic, and every payment shown here is simulated. No blockchain transaction is being claimed.
+
+On the overview, one planning run schedules seventeen hundred and forty kilowatt hours. In this illustrative scenario, the optimizer reduces modeled electricity cost by one hundred and twenty two euros, while lowering carbon emissions by forty kilograms. These numbers describe the scenario, not measured factory savings.
+
+The operator defines each asset's power, uninterrupted duration, earliest start, latest finish, and current operating time. The scheduler keeps every load inside its window and respects a shared four hundred kilowatt connection limit. Battery charging is a fixed energy block; this prototype does not dispatch physical equipment.
+
+The marketplace compares providers by price and usefulness. GridPulse supplies hourly electricity prices. CarbonLens adds carbon intensity when the objective values emissions. A more expensive price feed is skipped, and weather is declined because it cannot improve our fixed cooling model. The two useful feeds cost point zero one eight simulated USDC.
+
+Spending controls set a daily budget, a per-provider limit, and an autonomous payment threshold. In the server implementation, those policies are enforced before signing. Concurrent retries cannot settle the same payment twice, and uncertain settlements retain their budget reservation.
+
+The audit screen exposes hash-linked payment and scheduling events. Browser records remain local and explicitly show zero HCS anchors. Separately, our backend integrates the official Hedera x four oh two SDK, HTS USDC transfers, and Hedera Consensus Service commitments. Live settlement still requires testnet funding and independent verification. Twenty automated tests cover optimization, budgets, payment recovery, authentication, and evidence checks. GridAgent connects useful information, bounded spending, and an inspectable production plan.

@@ -6,6 +6,10 @@ Built for [ETHGlobal Mumbai 2026 — AI Agents That Pay: x402 on Hedera](https:/
 
 > **Current evidence:** local end-to-end demo and automated tests pass. All forecast inputs are synthetic. Demo receipts are simulations with no Hedera transaction ID. Testnet integration is implemented but must be exercised with funded accounts before this qualifies as a real settled-payment submission. No legal compliance or production savings claim is made.
 
+## Try it
+
+[Public interactive demo](https://gridagent-mumbai-demo.vercel.app) · [Narrated walkthrough](docs/gridagent-demo.mp4) (2:21, 1280×720, audio, no music). The public site runs the optimizer and simulated payments entirely in your browser. Use the local Express service below for the actual HTTP 402 demonstration and configured Hedera testnet integration.
+
 ## Run locally
 
 Node.js 24+ and npm are required.
