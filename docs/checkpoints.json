@@ -1,0 +1,41 @@
+{
+  "timezone": "Asia/Kolkata",
+  "automationId": "gridagent-four-hourly-checkpoints",
+  "branch": "codex/gridagent",
+  "pushRemote": "fork",
+  "checkpoints": [
+    {
+      "number": 1,
+      "due": "2026-11-06T20:24:00+05:30",
+      "status": "completed",
+      "focus": "Working foundation, governed payments, dashboard, tests and setup docs",
+      "completedAt": "2026-11-06T14:56:14.202194+00:00",
+      "commitMessage": "Build GridAgent governed energy planning demo",
+      "pushedBranch": "fork/codex/gridagent",
+      "validation": [
+        "10 tests passed",
+        "Root and eve agent typechecks passed",
+        "Zero root and agent production npm audit findings",
+        "Node 24 Docker build and full HTTP planning run passed"
+      ]
+    },
+    {
+      "number": 2,
+      "due": "2026-11-06T21:24:00+05:30",
+      "status": "pending",
+      "focus": "Real testnet settlement/HCS evidence where funding allows; payment failure hardening"
+    },
+    {
+      "number": 3,
+      "due": "2026-11-06T22:24:00+05:30",
+      "status": "pending",
+      "focus": "Complete demo video, deployment, responsive/accessibility verification"
+    },
+    {
+      "number": 4,
+      "due": "2026-11-06T23:24:00+05:30",
+      "status": "pending",
+      "focus": "Final verification, public evidence and submission where authenticated access allows"
+    }
+  ]
+}

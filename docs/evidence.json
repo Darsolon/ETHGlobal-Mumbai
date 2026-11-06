@@ -1,0 +1,10 @@
+{
+  "project": "GridAgent",
+  "event": "ETHGlobal Mumbai 2026",
+  "track": "AI Agents That Pay: x402 on Hedera",
+  "testnetPayment": { "verified": false, "transactionId": null, "hashscanUrl": null, "payer": null, "merchant": null, "asset": "0.0.429274" },
+  "hcs": { "verified": false, "topicId": null, "sequenceNumbers": [] },
+  "deployment": { "verified": false, "url": null },
+  "video": { "verified": false, "url": null, "durationSeconds": null },
+  "submission": { "submitted": false, "url": null, "blocker": "ETHGlobal authenticated participant dashboard unavailable; magic-link sign-in required." }
+}
