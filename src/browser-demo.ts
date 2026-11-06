@@ -19,10 +19,11 @@ window.gridStaticApi=async(url,options)=>{
  if(url!=='/api/run')throw Error('Unavailable in the public browser demo');
  if(running)throw Error('A planning run is already in progress');
  const input=planSchema.parse(JSON.parse(String(options?.body)));optimize(input,fixture());
+ running=true;
+ try{
  if(!(await integrity()).valid)throw Error('Local demo audit integrity failed. Use the server-backed app for independent verification.');
  const runId=crypto.randomUUID(),decisions:any[]=[],data=fixture();let spentMicros=0;
- const kinds=new Set<string>();running=true;
- try{
+ const kinds=new Set<string>();
  await append('run.started',runId,{mode:'browser-demo',synthetic:true});
  for(const p of [...providers].sort((a,b)=>a.priceMicros-b.priceMicros)){
   let reason='',status='skipped';
