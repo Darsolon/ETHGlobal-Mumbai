@@ -1,7 +1,7 @@
-# Silent demo walkthrough
+# Narrated interactive walkthrough
 
-[gridagent-demo.mp4](gridagent-demo.mp4) is a 2:09, 1280×720 H.264 video with **no audio track**, as requested. It replaces the narrated slideshow with an actual browser walkthrough: flexible loads, provider marketplace, spending controls, a planning run, current versus optimized schedules, and an expanded audit event. Browser screenshots were captured repeatedly during the real interactions and encoded with their original wall-clock timing. No playback speedup or fabricated on-chain activity is used.
+[gridagent-demo.mp4](gridagent-demo.mp4) contains the actual browser walkthrough with the user-provided voice recording overlaid. Per the user’s clarification, the last 11 seconds were removed from the voice recording, not the video. The video remains 128.75 seconds at 1280×720. The retained narration is about 57.97 seconds, followed by silence for the remainder of the walkthrough. No synthetic voice or music is used. Source recording metadata was stripped from the published MP4; the original voice memo is not copied into the repository.
 
-The app is a clearly labeled public browser simulation. Testnet settlement and HCS proof remain unverified.
+Navigation, scrolling, planning, the current/optimized schedule comparison and audit expansion were captured at original wall-clock timing. Inputs and payments remain explicitly simulated; real Hedera payment and HCS evidence are unverified.
 
-The silent replacement was uploaded to the ETHGlobal draft. Media ID 36941 passed duration and resolution checks, but ETHGlobal rejected it for Missing audio. The requested silent file does not satisfy that stated audio requirement. Do not claim finalist media compliance. The user explicitly said **do not submit**; keep the project as a draft.
+Latest user instruction authorizes uploading this version and submitting the project. Verify media validation and actual submission confirmation before marking submitted.

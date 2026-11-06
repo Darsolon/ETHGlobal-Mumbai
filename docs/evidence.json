@@ -29,18 +29,20 @@
     "localPath": "docs/gridagent-demo.mp4",
     "durationSeconds": 128.75,
     "resolution": "1280x720",
-    "audio": false,
+    "audio": true,
     "music": false,
-    "ethglobalMediaId": 36941,
+    "ethglobalMediaId": 36943,
     "uploadedAndSaved": true,
-    "format": "Silent browser walkthrough captured during real navigation and clicks",
-    "ethglobalValidation": "Duration and resolution passed; rejected for missing audio"
+    "format": "Interactive browser walkthrough with user-recorded narration; final 11 seconds removed from audio",
+    "ethglobalValidation": "Uploaded and saved; video checklist complete",
+    "narrationDurationSeconds": 57.97
   },
   "submission": {
-    "submitted": false,
-    "url": null,
-    "blocker": "User explicitly instructed do not submit. Draft remains unsubmitted. Silent video retained as requested; ETHGlobal flags missing audio.",
+    "submitted": true,
+    "url": "https://ethglobal.com/showcase/gridagent-voqox",
+    "blocker": null,
     "draftUrl": "https://ethglobal.com/events/mumbai/project",
-    "draftSaved": true
+    "draftSaved": true,
+    "confirmation": "You did it! Thanks for submitting your project; 6 of 6 complete; Partner Judging only."
   }
 }

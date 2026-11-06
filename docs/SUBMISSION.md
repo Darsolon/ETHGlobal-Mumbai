@@ -34,10 +34,10 @@ Submission status is recorded in evidence.json. The public demo and video are av
 - [ ] Verified HCS topic/sequence and spending commitment
 - [x] Public browser simulation: https://gridagent-mumbai-demo.vercel.app
 - [x] Silent 2:09, 720p interactive walkthrough created and uploaded to draft (simulation disclosed)
-- [ ] ETHGlobal validation of silent replacement (form asks for audio)
+- [x] Replaced silent video with user-recorded narration; media 36943 saved and checklist complete
 - [ ] Separate video evidence of actual settlement
 - [x] Authenticated ETHGlobal draft populated with repository, media, descriptions and Hedera questionnaire
 - [ ] Resolve team eligibility warning or explicitly approve removal of affected member
-- [ ] Submit and verify confirmation URL — USER SAID DO NOT SUBMIT
+- [x] Submitted after renewed explicit authorization; https://ethglobal.com/showcase/gridagent-voqox
 
 No submission or stake return is guaranteed by preparing these materials. ETHGlobal eligibility, presentation and judging requirements apply.
