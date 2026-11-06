@@ -27,18 +27,19 @@
     "verified": true,
     "url": "https://github.com/Darsolon/ETHGlobal-Mumbai/blob/main/docs/gridagent-demo.mp4",
     "localPath": "docs/gridagent-demo.mp4",
-    "durationSeconds": 141,
+    "durationSeconds": 128.75,
     "resolution": "1280x720",
-    "audio": true,
+    "audio": false,
     "music": false,
-    "ethglobalMediaId": 36939,
+    "ethglobalMediaId": 36941,
     "uploadedAndSaved": true,
-    "format": "Narrated walkthrough of actual public demo screenshots; synthetic voice"
+    "format": "Silent browser walkthrough captured during real navigation and clicks",
+    "ethglobalValidation": "Duration and resolution passed; rejected for missing audio"
   },
   "submission": {
     "submitted": false,
     "url": null,
-    "blocker": "All draft sections saved, repository attached, public demo URL saved, video uploaded and saved. Final declaration awaits action-time approval. ETHGlobal warns Paula is not confirmed/checked in and will be removed on submission.",
+    "blocker": "User explicitly instructed do not submit. Draft remains unsubmitted. Silent video retained as requested; ETHGlobal flags missing audio.",
     "draftUrl": "https://ethglobal.com/events/mumbai/project",
     "draftSaved": true
   }

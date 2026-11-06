@@ -70,3 +70,12 @@ GitHub user now has write permission on Darsolon/ETHGlobal-Mumbai. User or teamm
 Created actual screenshot walkthrough with synthetic narration: docs/gridagent-demo.mp4, 141 seconds, 1280x720 H.264/AAC, no music. Uploaded to ETHGlobal media ID 36939 and clicked Continue to save. Project details, public deployment link, repository Darsolon/ETHGlobal-Mumbai, images, stack and Hedera questionnaire are saved. Description distinguishes public browser simulation from local server HTTP exchange and unverified testnet. Final submission remains pending: asked user for action-time approval of hackathon-work/Event Rules declaration; screenshot revealed ETHGlobal will remove Paula because her confirmation/check-in is incomplete, and asked explicitly about that consequence. Do not submit based only on an earlier general authorization; wait for reply covering both. Native Chrome form at https://ethglobal.com/events/mumbai/project. data/submission-final.png contains private local screenshot, ignored by git.
 
 Real testnet payment and HCS evidence remain false: project testnet account is unfunded; no fabricated transaction IDs. This is a working public simulation and testnet integration, not proof of track qualification or stake refund.
+
+
+## User stopped submission and requested a silent interactive video
+
+User initially approved declaration and Paula removal, then explicitly said DO NOT SUBMIT before the Submit button was clicked. This revokes prior submission authorization. No submission happened. Declaration had been checked; do not click Submit.
+
+Replaced the narrated video with a real interactive browser walkthrough captured through CUA screenshots at original wall-clock timing (navigation, scrolling, planning, current/optimized schedule toggle and audit expansion). Canonical docs/gridagent-demo.mp4 is now 128.75 seconds, 1280×720 H.264, no audio stream. Silent replacement uploaded and Continue saved in the ETHGlobal draft; media validation says 4–7 minutes and checklist marks video missing while processing. Form asks for audio; user explicitly requested silence, so do not claim media compliance. Original narration script remains historical source only. No application code changed.
+
+Silent upload validation completed: media 36941 retained, duration and resolution pass; missing audio is flagged. User specifically requested silence, so no artificial audio track or restored narration was added. Project remains unsubmitted.
