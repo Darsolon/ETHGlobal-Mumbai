@@ -103,12 +103,23 @@ Useful official references: [client](https://docs.hedera.com/solutions/ai/x402/p
 
 Demo mode uses `demo:local` and `demo-USDC`, a process-local HMAC key, explicit `simulated: true` receipts and null transaction IDs. It demonstrates the HTTP flow without representing a real blockchain payment.
 
+## Verify payment and HCS evidence
+
+Use the read-only Mirror Node verifier after a real payment:
+
+```sh
+npm run verify:evidence -- payment TRANSACTION_ID PAYER_ID MERCHANT_ID 0.0.429274 12000
+npm run verify:evidence -- hcs
+```
+
+Replace uppercase placeholders with actual IDs. The verifier checks successful parent consensus, exact HTS token amounts and counterparties, or the matching HCS commitment and sequence. It refuses local/demo events. It never pays, releases reservations, or writes success into the evidence file. See [verification and recovery](docs/VERIFICATION.md).
+
 ## Spending and integrity controls
 
 - Limits use integer millionths of USDC. Effective daily/per-provider/automatic ceilings are the minimum of operator inputs and server environment limits.
 - Budget is shared across runs for the Europe/Berlin calendar day and survives process restart.
 - A reservation is written **before** requesting/signing a payment. Uncertain failures retain it. Reconcile before releasing uncertain amounts; do not automatically retry a possibly settled payment.
-- Payment submissions have replay protection. Runs require an `Idempotency-Key`; repeating a successful run returns its original result without charging again.
+- Payment submissions have persistent, atomic replay claims after verification, including concurrent requests. Settlement receipts must match the transaction that was signed. Runs require an `Idempotency-Key`; repeating a successful run returns its original result without charging again.
 - Testnet write APIs require a bearer operator token; cross-origin browser writes are refused. Never expose the operator token in public source.
 - Data providers, recipient, network and token are configured server-side. The client cannot choose an arbitrary payee.
 - Event bodies are SHA-256 linked. HCS messages commit event ID, type, run ID, hash and previous hash, with consensus sequence/transaction metadata stored locally. HCS failure never becomes a fake success.

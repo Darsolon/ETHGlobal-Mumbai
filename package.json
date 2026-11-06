@@ -7,7 +7,8 @@
     "start": "tsx src/server.ts",
     "build": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
-    "hedera:topic": "tsx scripts/create-topic.ts"
+    "hedera:topic": "tsx scripts/create-topic.ts",
+    "verify:evidence": "tsx scripts/verify-evidence.ts"
   },
   "repository": {
     "type": "git",

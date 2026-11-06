@@ -10,15 +10,16 @@ export async function anchorEvent(store: Store, event: AuditEvent) {
   if (!isTestnet()) return;
   const topicId = process.env.HEDERA_TOPIC_ID;
   if (!topicId) { store.anchor(event.id, undefined, 'HEDERA_TOPIC_ID is missing; event is local only'); return; }
-  const client = hederaClient();
+  let client: Client | undefined;
   try {
+    client = hederaClient();
     // Commit the complete local event by hash, keeping each HCS message below 1024 bytes.
     const message = JSON.stringify({ app: 'GridAgent', version: 1, eventId: event.id, type: event.type, runId: event.runId, hash: event.hash, previousHash: event.previousHash });
     const tx = await new TopicMessageSubmitTransaction().setTopicId(topicId).setMessage(message).execute(client);
     const receipt = await tx.getReceipt(client);
     store.anchor(event.id, { topicId, sequence: receipt.topicSequenceNumber!.toString(), transactionId: tx.transactionId.toString() });
   } catch { store.anchor(event.id, undefined, 'HCS anchoring failed; local hash retained for retry'); }
-  finally { client.close(); }
+  finally { client?.close(); }
 }
 export async function createTopic() {
   const client = hederaClient();

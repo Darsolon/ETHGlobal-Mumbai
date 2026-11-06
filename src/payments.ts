@@ -1,11 +1,13 @@
 import { randomUUID, createHmac, timingSafeEqual } from 'node:crypto';
+import { isDeepStrictEqual } from 'node:util';
 import { PrivateKey } from '@hiero-ledger/sdk';
-import { createClientHederaSigner } from '@x402/hedera';
+import { createClientHederaSigner, inspectHederaTransaction } from '@x402/hedera';
 import { ExactHederaScheme } from '@x402/hedera/exact/client';
 import type { PaymentRequirements, PaymentPayload } from '@x402/core/types';
 import type { Provider } from './domain.js';
 import { isTestnet } from './hedera.js';
 import { Store, digest } from './store.js';
+import { mirrorTransactionId } from './verification.js';
 
 const demoSecret = randomUUID();
 const facilitator = () => process.env.X402_FACILITATOR_URL || 'https://x402.org/facilitator';
@@ -35,8 +37,8 @@ export async function signPayment(accepted: PaymentRequirements, url: string): P
   const payload = await new ExactHederaScheme(signer).createPaymentPayload(2, accepted);
   return { ...payload, accepted, resource: { url, description: 'Synthetic industrial forecast', mimeType: 'application/json' } } as PaymentPayload;
 }
-export async function settlePayment(store: Store, payload: PaymentPayload, expected: PaymentRequirements) {
-  if (payload.x402Version !== 2 || digest(payload.accepted) !== digest(expected)) throw new Error('Payment does not match the current quote');
+export async function settlePayment(store: Store, payload: PaymentPayload, expected: PaymentRequirements, transport: typeof fetchJson = fetchJson) {
+  if (payload.x402Version !== 2 || !isDeepStrictEqual(payload.accepted, expected)) throw new Error('Payment does not match the current quote');
   const paymentId = digest(payload.payload);
   // Write intent before a side effect. Uncertain results stay pending and cannot be replayed.
   if (store.getReceipt(paymentId)) throw new Error('Payment already submitted; reuse the original response or reconcile the pending receipt');
@@ -50,11 +52,15 @@ export async function settlePayment(store: Store, payload: PaymentPayload, expec
   }
   const body = JSON.stringify({ x402Version: 2, paymentPayload: payload, paymentRequirements: expected });
   const init = { method: 'POST', headers: { 'content-type': 'application/json' }, body };
-  const verification = await fetchJson(facilitator() + '/verify', init);
+  const signedTransaction = inspectHederaTransaction(payload.payload.transaction as string);
+  const signedId = mirrorTransactionId(signedTransaction.transactionId);
+  const verification = await transport(facilitator() + '/verify', init);
   if (!verification.isValid) throw new Error('Facilitator rejected payment');
-  store.setReceipt(paymentId, { pending: true, time: new Date().toISOString() });
-  const receipt = await fetchJson(facilitator() + '/settle', init);
+  // Two concurrent requests can both finish /verify. Only one may cross the settlement boundary.
+  if (!store.claimReceipt(paymentId, { pending: true, transactionId: signedTransaction.transactionId, accepted: expected, time: new Date().toISOString() })) throw new Error('Payment already submitted; reconcile the original receipt');
+  const receipt = await transport(facilitator() + '/settle', init);
   if (!receipt.success || receipt.network !== 'hedera:testnet' || !(receipt.transactionId || receipt.transaction)) throw new Error('Settlement not confirmed; reservation retained for reconciliation');
+  if (mirrorTransactionId(receipt.transactionId || receipt.transaction) !== signedId) throw new Error('Settlement transaction does not match signed transfer; reconciliation required');
   const result = { ...receipt, transactionId: receipt.transactionId || receipt.transaction, simulated: false };
   store.setReceipt(paymentId, result); return result;
 }

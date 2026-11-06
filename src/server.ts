@@ -18,7 +18,8 @@ export function createApp(store = new Store()) {
     if (req.headers.origin && req.headers.origin !== `${req.protocol}://${req.get('host')}`) {res.status(403).json({error:'Cross-origin writes are forbidden'});return;}
     if (!isTestnet()) return next();
     const token = process.env.GRID_API_TOKEN || ''; const supplied = req.get('authorization')?.replace(/^Bearer /,'') || '';
-    if (!token || supplied.length !== token.length || !timingSafeEqual(Buffer.from(token),Buffer.from(supplied))) {res.status(401).json({error:'An operator token is required in testnet mode'});return;}
+    const tokenBytes=Buffer.from(token), suppliedBytes=Buffer.from(supplied);
+    if (!token || suppliedBytes.length !== tokenBytes.length || !timingSafeEqual(tokenBytes,suppliedBytes)) {res.status(401).json({error:'An operator token is required in testnet mode'});return;}
     next();
   };
   app.get('/api/health',(_req,res) => res.json({ok:true,mode:isTestnet()?'testnet':'demo'}));

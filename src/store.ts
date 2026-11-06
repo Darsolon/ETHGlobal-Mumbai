@@ -53,5 +53,9 @@ export class Store {
   getRun(id: string) { return structuredClone(this.state.runs[id]); }
   setRun(id: string, run: unknown) { this.state.runs[id] = run; this.save(); }
   getReceipt(id: string) { return this.state.receipts[id]; }
+  claimReceipt(id: string, receipt: unknown) {
+    if (this.state.receipts[id]) return false;
+    this.state.receipts[id] = receipt; this.save(); return true;
+  }
   setReceipt(id: string, receipt: unknown) { this.state.receipts[id] = receipt; this.save(); }
 }
