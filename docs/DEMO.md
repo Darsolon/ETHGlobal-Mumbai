@@ -1,13 +1,11 @@
-# Demo walkthrough (target: 3–4 minutes)
+# Demo walkthrough
 
-The recording must be explicit about mode. A local simulated walkthrough is a product demo, not proof of track qualification. Record the actual testnet flow once funded credentials are ready.
+The finished narrated walkthrough is [gridagent-demo.mp4](gridagent-demo.mp4): 2:21, 1280×720, H.264 video with AAC narration and no music. It shows actual screenshots of the [public browser simulation](https://gridagent-mumbai-demo.vercel.app). The narration uses a synthetic system voice; the script is [demo-narration.txt](demo-narration.txt). Uploaded and saved to ETHGlobal as media 36939.
 
-1. **0:00–0:25 — Problem.** Introduce GridAgent: factories have flexible loads and volatile hourly energy prices. An agent should spend only on data that can help the schedule.
-2. **0:25–0:55 — Constraints and policy.** Show the compressor, cooling and charging blocks, operating windows, 400 kW connection cap, daily/per-provider budgets and autonomous threshold.
-3. **0:55–1:30 — The market.** Show two price providers. Explain why the lower price wins, why carbon can affect the objective, and why weather is deliberately skipped in this model.
-4. **1:30–2:20 — Pay and plan.** Click Plan next shift. Show HTTP 402, signed retry, successful facilitator receipt, and the **actual** HashScan transaction in testnet. Do not expose private keys or operator token. If this is local mode, say “simulated” and do not imply on-chain settlement.
-5. **2:20–2:55 — Outcome.** Show the price curve, current vs optimized Gantt schedules, conserved energy, satisfied capacity and modeled cost/carbon change. State inputs are synthetic and no machinery is actuated.
-6. **2:55–3:30 — Verify.** Open the audit trail, show payment and schedule hashes; in testnet show HCS topic/sequence and corresponding Mirror Node message.
-7. **3:30–3:50 — Close.** Show public repo/deployment, architecture and next steps. Explain what Hedera contributes: HTS settlement and HCS audit commitments, with SDKs and no Solidity.
+The walkthrough covers the planning result, load constraints, useful-data selection, spending controls and hash-linked audit trail. It explicitly distinguishes simulated purchases from actual settlement. No testnet transaction or HCS anchor is claimed.
 
-Keep final video below five minutes. Ensure the public link plays without requesting access. Include that link and verified transaction in README and docs/evidence.json before actual submission.
+For a live demo, open the public URL and select **Plan next shift**. The default run buys two simulated feeds for 0.018 USDC and yields EUR122.14 modeled savings. Edit loads or limits and rerun; a small budget declines purchases and uses labeled flat priors. Browser-local records can be reset by the browser owner and provide no independent security guarantee.
+
+For the HTTP 402 exchange, run the Express application with `npm start`. For actual Hedera evidence, fund a project testnet account, configure the documented merchant/facilitator/HCS settings, perform the real transfer and independently verify it with the Mirror Node CLI. Never present a signed but unsubmitted transaction as settlement.
+
+ETHGlobal finalist video requirements observed in the authenticated form: 2–4 minutes, minimum 720p, audio without music. The product walkthrough satisfies the media format; verified Hedera settlement is still a separate missing proof.

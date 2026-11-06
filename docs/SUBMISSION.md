@@ -1,6 +1,6 @@
 # GridAgent submission draft
 
-Do not mark this submitted until the real payment, public video, repository link and authenticated ETHGlobal submission have been verified.
+Submission status is recorded in evidence.json. The public demo and video are available; live Hedera payment/HCS proof remains unverified. A submitted form alone does not establish prize eligibility.
 
 **Project name:** GridAgent
 
@@ -27,14 +27,16 @@ Do not mark this submitted until the real payment, public video, repository link
 ## Submission checklist
 
 - [x] Working local product and automated tests
-- [x] Public project fork with source on `codex/gridagent`
+- [x] Public original repository, complete source pushed directly to `main`
 - [x] Setup, architecture and payment-flow README
 - [ ] At least one verified real settled Hedera x402 payment
 - [ ] Actual transaction ID in README and evidence.json, with working HashScan link
 - [ ] Verified HCS topic/sequence and spending commitment
-- [ ] Public deployment URL or reproducible publicly accessible endpoint
-- [ ] Public demo video ≤5 minutes showing actual settlement
-- [ ] Authenticated ETHGlobal project page with correct existing team
+- [x] Public browser simulation: https://gridagent-mumbai-demo.vercel.app
+- [x] Narrated 2:21, 720p product walkthrough uploaded and saved to ETHGlobal (simulation disclosed)
+- [ ] Separate video evidence of actual settlement
+- [x] Authenticated ETHGlobal draft populated with repository, media, descriptions and Hedera questionnaire
+- [ ] Resolve team eligibility warning or explicitly approve removal of affected member
 - [ ] Submit and verify confirmation URL
 
 No submission or stake return is guaranteed by preparing these materials. ETHGlobal eligibility, presentation and judging requirements apply.

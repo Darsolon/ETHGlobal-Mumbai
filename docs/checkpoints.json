@@ -2,7 +2,7 @@
   "timezone": "Asia/Kolkata",
   "automationId": "gridagent-four-hourly-checkpoints",
   "branch": "codex/gridagent",
-  "pushRemote": "fork",
+  "pushRemote": "origin/main and fork/codex/gridagent",
   "checkpoints": [
     {
       "number": 1,
@@ -39,14 +39,36 @@
     {
       "number": 3,
       "due": "2026-11-06T22:24:00+05:30",
-      "status": "pending",
-      "focus": "Complete demo video, deployment, responsive/accessibility verification"
+      "status": "superseded",
+      "focus": "Complete demo video, deployment, responsive/accessibility verification",
+      "reason": "User replaced hourly schedule with accelerated final sprint."
     },
     {
       "number": 4,
       "due": "2026-11-06T23:24:00+05:30",
-      "status": "pending",
-      "focus": "Final verification, public evidence and submission where authenticated access allows"
+      "status": "superseded",
+      "focus": "Final verification, public evidence and submission where authenticated access allows",
+      "reason": "User replaced hourly schedule with accelerated final sprint."
     }
-  ]
+  ],
+  "automationStatus": "Deleted; superseded by user-requested twenty-minute final sprint",
+  "finalSprint": {
+    "requestedAt": "2026-11-06T16:49:22Z",
+    "deadline": "2026-11-06T17:09:22Z",
+    "commits": [
+      "a8415c9",
+      "b5117d9",
+      "4d2ae94",
+      "3e573a5",
+      "7b18c35"
+    ],
+    "validation": [
+      "21 tests pass",
+      "Root typecheck and static build pass",
+      "Public Vercel optimizer run and budget blocking verified",
+      "141-second 720p audio walkthrough uploaded and saved"
+    ],
+    "submission": "Awaiting final declaration and team-removal approval",
+    "testnet": "Not funded; no settled payment or HCS evidence"
+  }
 }

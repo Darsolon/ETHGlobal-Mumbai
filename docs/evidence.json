@@ -16,18 +16,29 @@
     "sequenceNumbers": []
   },
   "deployment": {
-    "verified": false,
-    "url": null
+    "verified": true,
+    "url": "https://gridagent-mumbai-demo.vercel.app",
+    "kind": "browser-only simulation",
+    "deploymentId": "dpl_8fcV93RgtAs9pcFqUyvpJzseGJLc",
+    "commit": "7b18c35614bbbb3b3b437a89ccedd5282490b83a",
+    "verification": "Public browser run completed; two simulated datasets, modeled savings EUR122.14; low budget blocks purchases."
   },
   "video": {
-    "verified": false,
-    "url": null,
-    "durationSeconds": null
+    "verified": true,
+    "url": "https://github.com/Darsolon/ETHGlobal-Mumbai/blob/main/docs/gridagent-demo.mp4",
+    "localPath": "docs/gridagent-demo.mp4",
+    "durationSeconds": 141,
+    "resolution": "1280x720",
+    "audio": true,
+    "music": false,
+    "ethglobalMediaId": 36939,
+    "uploadedAndSaved": true,
+    "format": "Narrated walkthrough of actual public demo screenshots; synthetic voice"
   },
   "submission": {
     "submitted": false,
     "url": null,
-    "blocker": "Draft fields, media, tech stack and Hedera questionnaire saved in authenticated Chrome. GitHub connection awaits user passkey/2FA; repository selection, public deployment and uploaded video remain pending.",
+    "blocker": "All draft sections saved, repository attached, public demo URL saved, video uploaded and saved. Final declaration awaits action-time approval. ETHGlobal warns Paula is not confirmed/checked in and will be removed on submission.",
     "draftUrl": "https://ethglobal.com/events/mumbai/project",
     "draftSaved": true
   }
